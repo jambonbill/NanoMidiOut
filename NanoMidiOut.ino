@@ -106,47 +106,21 @@ void stop(){
 
 
 void onBeat(){
-  byte a=0xB0;// Control change
-  byte b=30;// CCNUM (i like this one)
-  byte c=127;// MAXIMUM POWER !!!  
-  // https://arduino.stackexchange.com/questions/41684/midiusb-why-is-the-command-put-twice
-  //midiEventPacket_t event = {0|a>>4, a, b, c};
-  //MidiUSB.sendMIDI(event);
-  //MidiUSB.flush();//send NOW
+  //
 }
 
 void onBar(){//every 4 beats...
-  byte a=0xB0;// Control change
-  byte b=31;// CCNUM (i like this one)
-  byte c=127;// MAXIMUM POWER !!!  
-  //midiEventPacket_t event = {0|a>>4, a, b, c};
-  //MidiUSB.sendMIDI(event);
-  //MidiUSB.flush();//send NOW
+  //
 }
 
 void onTick(){
-  byte a=248;
-  //midiEventPacket_t event = {0|a>>4, a, 0, 0};//i must try to get rid of the zeros
-  //MidiUSB.sendMIDI(event);
-  //MidiUSB.flush();//send NOW
-  //Serial.write(a);
-  //Serial.write(pitch);
-  //Serial.write(velocity);
   midiSerial.write(248);
 }
 
 void onStart(){
-  byte a=250;
-  Serial.write(a);
-  //Serial.write(pitch);
-  //Serial.write(velocity);
   midiSerial.write(250);
 }
 
 void onStop(){
-  byte a=252;
-  Serial.write(a);
-  //Serial.write(pitch);
-  //Serial.write(velocity);
   midiSerial.write(252);
 }
